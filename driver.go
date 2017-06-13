@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
-	"sync"
-
 	"github.com/Sirupsen/logrus"
 	"github.com/docker/go-plugins-helpers/volume"
+	"log"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"sync"
 )
 
 type ExampleDriver struct {
@@ -37,8 +38,16 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 
 	_, err := os.Lstat(volumePath)
 	if err != nil {
-		logrus.Errorf("Error %s %v", volumePath, err.Error())
-		return volume.Response{Err: fmt.Sprintf("Error: %s: %s", volumePath, err.Error())}
+		/*logrus.Errorf("Error %s %v", volumePath, err.Error())
+		return volume.Response{Err: fmt.Sprintf("Error: %s: %s", volumePath, err.Error())}*/
+		fmt.Printf("Creating new directory %s", volumePath)
+		cmd := exec.Command("mkdir", "-p", volumePath)
+		stdoutStderr, err := cmd.CombinedOutput()
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%s\n", stdoutStderr)
+
 	}
 
 	d.volumes[r.Name] = volumePath
