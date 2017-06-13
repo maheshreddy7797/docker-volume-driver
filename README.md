@@ -8,7 +8,7 @@
       go build .
       ./ebsDriver
   ```
-### Open new Terminal window`
+### Open new Terminal window
   ```
       docker run -it -v openebsvol1:/data --volume-driver=openEBSDriver alpine sh
   ```
