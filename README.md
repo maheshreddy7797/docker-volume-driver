@@ -19,6 +19,8 @@
   ```Shell
       docker volume ls
   ```
-> local                database
-
-> openEBSDriver        openebsvol1
+``` 
+    DRIVER               VOLUME NAME
+    local                database
+    openEBSDriver        openebsvol1
+```
