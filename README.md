@@ -9,31 +9,33 @@
   
   - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and tries to mounth that mount point.
   
-  ## prerequisites :
-  - As this is the basic part of the code some prerequests are mandatory follow the below lines 
+  ## presetup :
+  - Create a mount path of the volume that needs to be mounted.
+    For our convention MountPoint : /tmp/exampledriver
+                       MountPath  : /tmp/exampledriver/myvolumename
   ```
     mkdir -p /tmp/exampledriver/myvolumename
      ```
-  - We need to import/get some of the packages which will in building the code 
+  - Get the required go packages 
    ```
     go get github.com/Sirupsen/logrus 
     go get github.com/docker/go-plugins-helpers/volume
     ```
   
-## Install driver
+## 1. Install driver
   ```
       git clone https://github.com/maheshreddy7797/docker-localdir-volume-plugin.git
       cd docker-localdir-volume-plugin
       go build .
       ./docker-localdir-volume-plugin
   ```
-#### Open new Terminal window
+## 2. Open new Terminal window
   ```Shell
       docker run -it -v myvolumename:/data --volume-driver=myexampledriver alpine sh
   ```
   > /#
   
-#### Check if volume is created
+## 3. Check if volume is created
      
   ```Shell
       docker volume ls
