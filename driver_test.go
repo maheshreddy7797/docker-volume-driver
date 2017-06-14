@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/docker/go-plugins-helpers/volume"
 	"reflect"
 	"sync"
 	"testing"
+
+	"github.com/docker/go-plugins-helpers/volume"
 )
 
 func TestNewExampleDriver(t *testing.T) {
@@ -12,6 +13,7 @@ func TestNewExampleDriver(t *testing.T) {
 		name string
 		want ExampleDriver
 	}{
+
 		{
 			name: "test-positive",
 			want: ExampleDriver{
