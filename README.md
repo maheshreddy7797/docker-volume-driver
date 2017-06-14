@@ -55,12 +55,18 @@ $ docker volume create --driver=myexampledriver  volumename
 
 ```
 ### Remove volume 
-    - Remove all unused volumes
-        ``` $ docker volume prune ```
+    
+ - Remove all unused volumes
         
-    - Remove one or more volumes
+        ```  
+        $ docker volume prune
+        ```
         
-        ```docker volume rm -f myvolumename ```
+ - Remove one or more volumes
+        
+        ``` 
+        docker volume rm -f myvolumename 
+        ```
 
 ### List all volumes
 
