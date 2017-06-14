@@ -15,9 +15,9 @@ func TestNewExampleDriver(t *testing.T) {
 		{
 			name	: "test-positive",
 			want	: ExampleDriver{
-								volumes	   :   make(map[string]string),
-								m				   :   &sync.Mutex{},
-								mountPoint :   "/tmp/exampledriver",
+					volumes	   :   make(map[string]string),
+					m	         :   &sync.Mutex{},
+					mountPoint :   "/tmp/exampledriver",
 			},
 		},
 	}
@@ -35,13 +35,13 @@ func TestExampleDriver_Create(t *testing.T) {
 		mountPoint string
 	}
 	type args struct {
-		r volume.Request
+		r          volume.Request
 	}
 	tests := []struct {
-		name   	string
-		fields 	fields
-		args  	args
-		want   	volume.Response
+		name   	   string
+		fields 	   fields
+		args  	   args
+		want   	   volume.Response
 	}{
 		{
 			name   :  "test-1",
