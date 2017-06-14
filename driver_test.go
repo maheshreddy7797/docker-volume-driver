@@ -4,22 +4,20 @@ import (
 	"reflect"
 	"sync"
 	"testing"
-
 	"github.com/docker/go-plugins-helpers/volume"
 )
 
 func TestNewExampleDriver(t *testing.T) {
 	testcases := []struct {
-		name string
-		want ExampleDriver
+			name	string
+			want	ExampleDriver
 	}{
-
 		{
-			name: "test-positive",
-			want: ExampleDriver{
-				volumes:    make(map[string]string),
-				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver",
+			name	: "test-positive",
+			want	: ExampleDriver{
+								volumes	   :   make(map[string]string),
+								m				   :   &sync.Mutex{},
+								mountPoint :   "/tmp/exampledriver",
 			},
 		},
 	}
@@ -40,37 +38,37 @@ func TestExampleDriver_Create(t *testing.T) {
 		r volume.Request
 	}
 	tests := []struct {
-		name   string
-		fields fields
-		args   args
-		want   volume.Response
+		name   	string
+		fields 	fields
+		args  	args
+		want   	volume.Response
 	}{
 		{
-			name: "test-1",
-			fields: fields{
-				volumes:    make(map[string]string),
-				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver/",
+			name   :  "test-1",
+			fields :  fields{
+					volumes	   :   make(map[string]string),
+					m				   :	 &sync.Mutex{},
+					mountPoint :   "/tmp/exampledriver/",
 			},
-			args: args{
-				r: volume.Request{
-					Name:    "myvolumename",
-					Options: make(map[string]string),
+			args   :  args{
+					r          :    volume.Request{
+					Name		   :    "myvolumename",
+					Options	   :    make(map[string]string),
 				},
 			},
-			want: volume.Response{},
+			want	 :  volume.Response{},
 		},
 		{
 			name: "test-2",
-			fields: fields{
-				volumes:    make(map[string]string),
-				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver/",
+			fields :   fields{
+				volumes      :    make(map[string]string),
+				m            :    &sync.Mutex{},
+				mountPoint   :    "/tmp/exampledriver/",
 			},
-			args: args{
-				r: volume.Request{
-					Name:    "newvolumename",
-					Options: make(map[string]string),
+			args   :   args{
+					r					 :		volume.Request{
+					Name       :    "newvolumename",
+					Options    :    make(map[string]string),
 				},
 			},
 			want: volume.Response{},
@@ -78,9 +76,9 @@ func TestExampleDriver_Create(t *testing.T) {
 	}
 	for _, tt := range tests {
 		d := ExampleDriver{
-			volumes:    tt.fields.volumes,
-			m:          tt.fields.m,
-			mountPoint: tt.fields.mountPoint,
+			volumes    :    tt.fields.volumes,
+			m          :    tt.fields.m,
+			mountPoint :    tt.fields.mountPoint,
 		}
 		if got := d.Create(tt.args.r); !reflect.DeepEqual(got, tt.want) {
 			t.Errorf("%q. ExampleDriver.Create() = %v, want %v", tt.name, got, tt.want)
