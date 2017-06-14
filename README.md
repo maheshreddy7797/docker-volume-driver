@@ -5,7 +5,7 @@
     
 # myexampledriver : docker-volume-plugin-example(2017)
   
-  - This plugin was built with the reference @ (https://github.com/fntlnz/docker-volume-plugin-example) overcoming the issues       of the repository.
+  - This plugin was built with the ![reference](https://github.com/fntlnz/docker-volume-plugin-example) overcoming the issues       of the repository.
   
   - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and tries to mounth that mount point.
   
@@ -44,4 +44,32 @@
     DRIVER                 VOLUME NAME
     local                  database
     myexampledriver        myvolumename
+```
+## Examples
+    Here are some of the example syntaxes which will help for dealing with the docker volumes :
+    
+### Create a volume
+
+```
+$ docker volume create --driver=myexampledriver  volumename
+
+```
+### Remove volume 
+    
+ - Remove all unused volumes
+        
+        ```  
+        $ docker volume prune
+        ```
+        
+ - Remove one or more volumes
+        
+        ``` 
+        docker volume rm -f myvolumename 
+        ```
+
+### List all volumes
+
+```
+$ docker volume ls
 ```
