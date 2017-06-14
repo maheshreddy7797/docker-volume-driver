@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -38,7 +37,6 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 	logrus.Infof("Create volume: %s", r.Name)
 	d.m.Lock()
 	defer d.m.Unlock()
-
 	if _, ok := d.volumes[r.Name]; ok {
 		return volume.Response{}
 	}
@@ -47,20 +45,14 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 
 	_, err := os.Lstat(volumePath)
 	if err != nil {
-		/*logrus.Errorf("Error %s %v", volumePath, err.Error())
-		return volume.Response{Err: fmt.Sprintf("Error: %s: %s", volumePath, err.Error())}*/
 		fmt.Printf("Creating new directory %s", volumePath)
-		cmd := exec.Command("mkdir", "-p", volumePath)
-		stdoutStderr, err := cmd.CombinedOutput()
-		if err != nil {
-			log.Fatal(err)
+		_ = exec.Command("mkdir", "-p", volumePath)
+		d.volumes[r.Name] = volumePath
+		if _, ok := d.volumes[r.Name]; ok {
+			return volume.Response{}
 		}
-		fmt.Printf("%s\n", stdoutStderr)
-
 	}
-
 	d.volumes[r.Name] = volumePath
-
 	return volume.Response{}
 }
 
