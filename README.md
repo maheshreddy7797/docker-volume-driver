@@ -1,8 +1,7 @@
 ![Go Report Card](https://goreportcard.com/badge/github.com/maheshreddy7797/docker-localdir-volume-plugin)
 
 
-lugins-helpers/volume
-    ```
+
     
 # myexampledriver : docker-volume-plugin-example(2017)
   
@@ -18,7 +17,8 @@ lugins-helpers/volume
   - We need to import/get some of the packages which will in building the code 
    ```
     go get github.com/Sirupsen/logrus 
-    go get github.com/docker/go-p
+    go get github.com/docker/go-plugins-helpers/volume
+    ```
   
 ## Install driver
   ```
