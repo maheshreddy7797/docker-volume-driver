@@ -42,7 +42,6 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 	}
 
 	volumePath := filepath.Join(d.mountPoint, r.Name)
-
 	_, err := os.Lstat(volumePath)
 	if err != nil {
 		fmt.Printf("Creating new directory %s", volumePath)
@@ -59,18 +58,14 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 // List all volumes and their respective mount points.
 func (d ExampleDriver) List(r volume.Request) volume.Response {
 	logrus.Info("Volumes list ", r)
-
 	volumes := []*volume.Volume{}
-
 	for name, path := range d.volumes {
 		volumes = append(volumes, &volume.Volume{
 			Name:       name,
 			Mountpoint: path,
 		})
 	}
-
 	return volume.Response{Volumes: volumes}
-
 }
 
 // Get request the information about specified volume
@@ -93,21 +88,18 @@ func (d ExampleDriver) Get(r volume.Request) volume.Response {
 // Remove is called to delete a volume.
 func (d ExampleDriver) Remove(r volume.Request) volume.Response {
 	logrus.Info("Remove volume ", r)
-
 	d.m.Lock()
 	defer d.m.Unlock()
 
 	if _, ok := d.volumes[r.Name]; ok {
 		delete(d.volumes, r.Name)
 	}
-
 	return volume.Response{}
 }
 
 // Path is called to get the path of a volume mounted on the host.
 func (d ExampleDriver) Path(r volume.Request) volume.Response {
 	logrus.Info("Get volume path", r)
-
 	if path, ok := d.volumes[r.Name]; ok {
 		return volume.Response{
 			Mountpoint: path,
@@ -119,15 +111,12 @@ func (d ExampleDriver) Path(r volume.Request) volume.Response {
 // Mount bind the volume to a container specified by the Path.
 func (d ExampleDriver) Mount(r volume.MountRequest) volume.Response {
 	logrus.Info("Mount volume ", r)
-
 	if path, ok := d.volumes[r.Name]; ok {
 		return volume.Response{
 			Mountpoint: path,
 		}
 	}
-
 	return volume.Response{}
-
 }
 
 // Unmount is called to stop the container from using the volume
