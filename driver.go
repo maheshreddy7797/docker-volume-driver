@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
+	//"os/exec"
 	"path/filepath"
 	"sync"
 
@@ -43,13 +43,11 @@ func (d ExampleDriver) Create(r volume.Request) volume.Response {
 
 	volumePath := filepath.Join(d.mountPoint, r.Name)
 	_, err := os.Lstat(volumePath)
+
 	if err != nil {
 		fmt.Printf("Creating new directory %s", volumePath)
-		_ = exec.Command("mkdir", "-p", volumePath)
-		d.volumes[r.Name] = volumePath
-		if _, ok := d.volumes[r.Name]; ok {
-			return volume.Response{}
-		}
+		//cmd := exec.Command("sudo mkdir", "-p", volumePath)
+		os.Mkdir(volumePath, os.ModePerm)
 	}
 	d.volumes[r.Name] = volumePath
 	return volume.Response{}
