@@ -1,0 +1,10 @@
+[Unit]
+Description=myexampledriver
+Before=docker.service
+After=network.target myexampledriver.socket
+Requires=myexampledriver.socket docker.service
+
+[Service]
+ExecStart=/bin/myexampledriver
+[Install]
+WantedBy=multi-user.target

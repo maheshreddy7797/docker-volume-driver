@@ -4,6 +4,8 @@ ADD . /code
 
 WORKDIR /code
 
-RUN cd /code
+COPY systemd/ /lib/systemd/system/
 
-CMD ["bin/sh"]
+COPY myexampledriver /bin
+
+CMD ["/bin/myexampledriver"]
