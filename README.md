@@ -9,10 +9,12 @@
   
 ## presetup :
   - Create a mount path of the volume that needs to be mounted.
-    For our convention MountPoint : /tmp/exampledriver
-                       MountPath  : /tmp/exampledriver/demovol
+  ```
+     For our convention MountPoint : /tmp/exampledriver
+                        MountPath  : /tmp/exampledriver/demovol
    ```
-     mkdir -p /tmp/exampledriver/myvolumename
+   ```
+     mkdir -p /tmp/exampledriver
    ```
   - Get the required go packages 
    ```
