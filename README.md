@@ -30,8 +30,8 @@
    ```
       docker plugin ls
    ```
-   ID                  NAME                                         DESCRIPTION                         ENABLED
-   12fb9b1c43c8        maheshreddy7797/myexampledriver:latest       Example volume plugin               true
+      ID                  NAME                                         DESCRIPTION                         ENABLED
+      12fb9b1c43c8        maheshreddy7797/myexampledriver:latest       Example volume plugin               true
         
 ## 3. Create volume
   
