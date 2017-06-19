@@ -1,7 +1,7 @@
 {
     "description": "Example volume plugin",
     "documentation": "https://github.com/maheshreddy7797/myexampledriver/",
-    "entrypoint": ["/bin/myexampledriver", "daemon", "start", "-v", ">", "/etc/nvd/myexampledriver.log"],
+    "entrypoint": ["/myexampledriver"],
     "env": [
         {
             "name": "DEBUG",
