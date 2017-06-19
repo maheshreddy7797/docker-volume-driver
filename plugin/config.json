@@ -1,0 +1,44 @@
+{
+    "description": "Example volume plugin",
+    "documentation": "https://github.com/maheshreddy7797/myexampledriver/",
+    "entrypoint": ["/bin/myexampledriver", "daemon", "start", "-v", ">", "/etc/nvd/myexampledriver.log"],
+    "env": [
+        {
+            "name": "DEBUG",
+            "settable": [
+                "value"
+            ],
+            "value": "0"
+        }
+    ],
+    "interface": {
+        "socket": "myexampledriver.sock",
+        "types": [
+            "docker.volumedriver/1.0"
+        ]
+    },
+    "linux": {
+        "capabilities": [
+            "CAP_SYS_ADMIN"
+        ]
+    },
+    "mounts": [
+        {
+            "destination": "/mnt/state",
+            "source": "/var/lib/docker/plugins/",
+            "options": ["rbind"],
+            "type": "bind"
+        },
+        {
+            "destination": "/etc/myexampledriver",
+            "options": ["rbind", "rw"],
+            "source": "/etc/myexampledriver/",
+            "type": "rbind"
+        }
+
+    ],
+    "network": {
+        "type": "host"
+    },
+    "propagatedmount": "/mnt"
+}
