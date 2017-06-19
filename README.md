@@ -13,9 +13,9 @@
   - Create a mount path of the volume that needs to be mounted.
     For our convention MountPoint : /tmp/exampledriver
                        MountPath  : /tmp/exampledriver/myvolumename
-  ```
+    ```
     mkdir -p /tmp/exampledriver/myvolumename
-     ```
+    ```
   - Get the required go packages 
    ```
     go get github.com/Sirupsen/logrus 
@@ -23,17 +23,22 @@
     ```
   
 ## 1. Install driver
-  ```
-      git clone https://github.com/maheshreddy7797/docker-localdir-volume-plugin.git
-      cd docker-localdir-volume-plugin
-      go build .
-      ./docker-localdir-volume-plugin
-  ```
-## 2. Open new Terminal window
+      ```
+      Make
+      ```
+## 2. Check docker volume plugins list
+      ```
+      docker plugin ls
+      ```
+      > ID                  NAME                                         DESCRIPTION                         ENABLED
+      > 12fb9b1c43c8        maheshreddy7797/myexampledriver:latest       Example volume plugin               true
+        
+## 3. Create volume
+  
   ```Shell
-      docker run -it -v myvolumename:/data --volume-driver=myexampledriver alpine sh
+      docker volume create -d maheshreddy7797/myexampledriver --name=demovol
   ```
-  > /#
+  > demovol
   
 ## 3. Check if volume is created
      
@@ -41,7 +46,7 @@
       docker volume ls
   ```
 ``` 
-    DRIVER                 VOLUME NAME
-    local                  database
-    myexampledriver        myvolumename
+    DRIVER                               VOLUME NAME
+    local                                database
+    maheshreddy7797/myexampledriver      demovol
 ```
