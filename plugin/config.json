@@ -23,19 +23,19 @@
         ]
     },
     "mounts": [
-        {
+	{
             "destination": "/mnt/state",
-            "source": "/var/lib/docker/plugins/",
+            "source": "/tmp/exampledriver",
             "options": ["rbind"],
             "type": "bind"
-        },
-        {
-            "destination": "/etc/myexampledriver",
+	},
+        
+	{
+            "destination": "/etc",
             "options": ["rbind", "rw"],
-            "source": "/etc/myexampledriver/",
+            "source": "/etc/myexampledriver",
             "type": "rbind"
-        }
-
+}
     ],
     "network": {
         "type": "host"
