@@ -1,6 +1,4 @@
-![Go Report Card](https://goreportcard.com/report/github.com/maheshreddy7797/myexampledriver)
-
-
+[![Go Report Card](https://goreportcard.com/badge/github.com/maheshreddy7797/myexampledriver)](https://goreportcard.com/report/github.com/maheshreddy7797/myexampledriver)
 
 # myexampledriver : docker-volume-plugin-example(2017)
   
