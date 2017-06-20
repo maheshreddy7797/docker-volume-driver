@@ -24,7 +24,13 @@
   
 ## 1. Install driver
    ```
-      Make
+        - git clone https://github.com/maheshreddy7797/myexampledriver.git
+        - cd myexampledriver
+        - Make
+   ```
+   >                             OR
+   ```
+        docker plugin install maheshreddy7797/myexampledriver
    ```
 ## 2. Check docker volume plugins list
    ```
