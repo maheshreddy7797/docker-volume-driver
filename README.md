@@ -28,7 +28,7 @@
         - cd myexampledriver
         - Make
    ```
-   >                             OR
+   >                                     OR
    ```
         docker plugin install maheshreddy7797/myexampledriver
    ```
