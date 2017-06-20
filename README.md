@@ -5,43 +5,59 @@
     
 # myexampledriver : docker-volume-plugin-example(2017)
   
-  - This plugin was built with the reference @ (https://github.com/fntlnz/docker-volume-plugin-example) overcoming the issues       of the repository.
+   - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and mounts it.
   
-  - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and tries to mounth that mount point.
-  
-  ## presetup :
+## presetup :
   - Create a mount path of the volume that needs to be mounted.
-    For our convention MountPoint : /tmp/exampledriver
-                       MountPath  : /tmp/exampledriver/myvolumename
   ```
-    mkdir -p /tmp/exampledriver/myvolumename
-     ```
+     For our convention MountPoint : /tmp/exampledriver
+                        MountPath  : /tmp/exampledriver/demovol
+   ```
+   ```
+     mkdir -p /tmp/exampledriver
+   ```
   - Get the required go packages 
    ```
-    go get github.com/Sirupsen/logrus 
-    go get github.com/docker/go-plugins-helpers/volume
-    ```
+     go get github.com/Sirupsen/logrus 
+     go get github.com/docker/go-plugins-helpers/volume
+   ```
   
 ## 1. Install driver
-  ```
-      git clone https://github.com/maheshreddy7797/docker-localdir-volume-plugin.git
-      cd docker-localdir-volume-plugin
-      go build .
-      ./docker-localdir-volume-plugin
-  ```
-## 2. Open new Terminal window
-  ```Shell
-      docker run -it -v myvolumename:/data --volume-driver=myexampledriver alpine sh
-  ```
-  > /#
+   ```
+        - git clone https://github.com/maheshreddy7797/myexampledriver.git
+        - cd myexampledriver
+        - Make
+   ```
+   >                                     OR
+   ```
+        docker plugin install maheshreddy7797/myexampledriver
+   ```
+## 2. Check docker volume plugins list
+   ```
+      docker plugin ls
+   ```
+      ID                  NAME                                         DESCRIPTION                         ENABLED
+      12fb9b1c43c8        maheshreddy7797/myexampledriver:latest       Example volume plugin               true
+        
+## 3. Create volume
   
-## 3. Check if volume is created
-     
   ```Shell
-      docker volume ls
+      docker volume create -d maheshreddy7797/myexampledriver --name=demovol
   ```
-``` 
-    DRIVER                 VOLUME NAME
-    local                  database
-    myexampledriver        myvolumename
-```
+  > demovol
+  
+## 4. Check if volume is created
+     
+  ```
+    docker volume ls
+  ```
+  ``` 
+    DRIVER                               VOLUME NAME
+    local                                database
+    maheshreddy7797/myexampledriver      demovol
+  ```
+
+## 5. Run the container with mounted volume
+  ```
+    docker run -it -v demovol:/data alpine sh
+  ```
