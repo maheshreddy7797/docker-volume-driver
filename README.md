@@ -16,11 +16,6 @@
    ```
      mkdir -p /tmp/exampledriver
    ```
-  - Get the required go packages 
-   ```
-     go get github.com/Sirupsen/logrus 
-     go get github.com/docker/go-plugins-helpers/volume
-   ```
   
 ## 1. Install driver
    ```
