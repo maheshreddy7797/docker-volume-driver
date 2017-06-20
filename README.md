@@ -5,6 +5,8 @@
     
 # myexampledriver : docker-volume-plugin-example(2017)
   
+   - This plugin was built and developed by following the documentations of https://docs.docker.com/engine/extend/config/#config-field-descriptions and https://blog.codeship.com/extend-docker-via-plugin/
+   
    - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and mounts it.
   
 ## presetup :
