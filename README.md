@@ -9,16 +9,6 @@
    
    - This plugin can mount the volume at the mountpoint provided in the path, if the mount path doesn't exists the plugin will       creates the path and mounts it.
   
-## presetup :
-  - Create a mount path of the volume that needs to be mounted.
-  ```
-     For our convention MountPoint : /tmp/exampledriver
-                        MountPath  : /tmp/exampledriver/demovol
-   ```
-   ```
-     mkdir -p /tmp/exampledriver
-   ```
-  
 ## 1. Install driver
    ```
         - git clone https://github.com/maheshreddy7797/myexampledriver.git
