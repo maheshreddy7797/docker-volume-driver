@@ -1,17 +1,20 @@
 PLUGIN_NAME=maheshreddy7797/myexampledriver
 PLUGIN_TAG=latest
 
-all: clean docker rootfs create enable
+all: clean host docker rootfs create enable
 
 
 clean:
 	@echo "### rm ./plugin"
 	@rm -rf ./plugin bin
 
+host:
+	@mkdir -p /tmp/exampledriver /etc/myexampledriver
+
 docker:
 	@echo "### docker build: builder image"
 	@docker build -q -t builder -f Dockerfile.dev .
-	@echo "### extract nvd"
+	@echo "### extract myexampledriver"
 	@docker create --name tmp builder
 	@docker start -i tmp
 	@mkdir bin
