@@ -8,8 +8,8 @@
   
 ## 1. Install driver
    ```
-        - mkdir -p /tmp/mntdir1 /etc/mntdir2
-        - docker plugin install maheshreddy7797/docker-volume-driver
+        - sudo mkdir -p /tmp/mntdir1 /etc/mntdir2
+        - sudo docker plugin install maheshreddy7797/docker-volume-driver
    ```
    >                                     OR
    ``` 
