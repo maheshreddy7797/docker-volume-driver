@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/maheshreddy7797/docker-volume-driver)](https://goreportcard.com/report/github.com/maheshreddy7797/docker-volume-driver)
+[![Build Status](https://travis-ci.org/maheshreddy7797/docker-volume-driver.svg?branch=master)](https://travis-ci.org/maheshreddy7797/docker-volume-driver) [![Go Report Card](https://goreportcard.com/badge/github.com/maheshreddy7797/docker-volume-driver)](https://goreportcard.com/report/github.com/maheshreddy7797/docker-volume-driver) [![codecov](https://codecov.io/gh/maheshreddy7797/docker-volume-driver/branch/master/graph/badge.svg)](https://codecov.io/gh/maheshreddy7797/docker-volume-driver)
 
 # Docker-Volume-Driver (2017)
   
