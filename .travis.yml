@@ -1,4 +1,4 @@
-sudo: enabled
+sudo: required
 dist: trusty
 
 services:
@@ -16,7 +16,7 @@ before_install:
   - sudo apt-get update
 
 install:
-  - make
+  - sudo make
 
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
