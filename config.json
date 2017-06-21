@@ -33,7 +33,7 @@
 	{
             "destination": "/etc",
             "options": ["rbind", "rw"],
-            "source": "/etc/myexampledriver",
+            "source": "/etc/mntvol2",
             "type": "rbind"
 }
     ],
