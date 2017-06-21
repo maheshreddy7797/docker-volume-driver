@@ -1,0 +1,25 @@
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+language: go
+go:
+  - 1.8
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update
+
+install:
+  - make
+
+script:
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) CODECOV_TOKEN=67a580b1-489f-441c-802f-9f7da3c3d175
