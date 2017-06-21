@@ -14,8 +14,7 @@
    ```
    >                                     OR
    ``` 
-        - mkdir -p /tmp/exampledriver
-        - mkdir -p /etc/myexampledriver
+        - mkdir -p /tmp/exampledriver /etc/myexampledriver
         - docker plugin install maheshreddy7797/myexampledriver
    ```
 ## 2. Check docker volume plugins list
