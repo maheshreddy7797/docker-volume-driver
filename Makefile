@@ -3,7 +3,7 @@ PLUGIN_TAG=latest
 
 all: clean host docker rootfs create enable
 
-
+# remove the plugin & bin directories if exists in pwd.
 clean:
 	@echo "### rm ./plugin"
 	@rm -rf ./plugin bin
