@@ -10,7 +10,8 @@ clean:
 
 # Create mount path directories on the host.
 host:
-	@mkdir -p /tmp/mntdir1 /etc/mntdir2
+	@mkdir -p /tmp/mntdir1 
+	@mkdir -p /etc/mntdir2
 
 # Build & Run the image that gets and holds the executable binary of the source code
 docker:
