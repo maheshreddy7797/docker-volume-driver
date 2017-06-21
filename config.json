@@ -12,7 +12,7 @@
         }
     ],
     "interface": {
-        "socket": "docker-volume-driver.sock",
+        "socket": "dvd.sock",
         "types": [
             "docker.volumedriver/1.0"
         ]

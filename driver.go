@@ -26,7 +26,7 @@ func NewExampleDriver() ExampleDriver {
 	return ExampleDriver{
 		volumes:    make(map[string]string),
 		m:          &sync.Mutex{},
-		mountPoint: "/tmp/exampledriver",
+		mountPoint: "/tmp/mntvol1",
 	}
 }
 

@@ -1,4 +1,4 @@
-PLUGIN_NAME=maheshreddy7797/myexampledriver
+PLUGIN_NAME=maheshreddy7797/docker-volume-driver
 PLUGIN_TAG=latest
 
 all: clean host docker rootfs create enable
@@ -9,19 +9,19 @@ clean:
 	@rm -rf ./plugin bin
 
 host:
-	@mkdir -p /tmp/exampledriver /etc/myexampledriver
+	@mkdir -p /tmp/mntvol1 /etc/mntvol2
 
 docker:
 	@echo "### docker build: builder image"
 	@docker build -q -t builder -f Dockerfile.dev .
-	@echo "### extract myexampledriver"
+	@echo "### extract docker-volume-driver"
 	@docker create --name tmp builder
 	@docker start -i tmp
 	@mkdir bin
-	@docker cp tmp:/go/bin/myexampledriver bin/
+	@docker cp tmp:/go/bin/docker-volume-driver bin/
 	@docker rm -vf tmp
 	@docker rmi builder
-	@echo "### docker build: rootfs image with myexampledriver"
+	@echo "### docker build: rootfs image with docker-volume-driver"
 	@docker build -q -t ${PLUGIN_NAME}:rootfs .
 
 rootfs:
@@ -31,7 +31,7 @@ rootfs:
 	@docker export tmp | tar -x -C ./plugin/rootfs
 	@echo "### copy config.json to ./plugin/"
 	@cp config.json ./plugin/
-	@cp bin/myexampledriver plugin/rootfs/
+	@cp bin/docker-volume-driver plugin/rootfs/
 	@docker rm -vf tmp
 
 create:
