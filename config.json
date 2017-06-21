@@ -25,7 +25,7 @@
     "mounts": [
 	{
             "destination": "/mnt/state",
-            "source": "/tmp/exampledriver",
+            "source": "/tmp/mntdir1",
             "options": ["rbind"],
             "type": "bind"
 	},
@@ -33,7 +33,7 @@
 	{
             "destination": "/etc",
             "options": ["rbind", "rw"],
-            "source": "/etc/mntvol2",
+            "source": "/etc/mntdir2",
             "type": "rbind"
 }
     ],
