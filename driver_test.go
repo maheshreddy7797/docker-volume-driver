@@ -19,7 +19,7 @@ func TestNewExampleDriver(t *testing.T) {
 			want: ExampleDriver{
 				volumes:    make(map[string]string),
 				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver",
+				mountPoint: "/tmp/mntdir1",
 			},
 		},
 	}
@@ -50,7 +50,7 @@ func TestExampleDriver_Create(t *testing.T) {
 			fields: fields{
 				volumes:    make(map[string]string),
 				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver/",
+				mountPoint: "/tmp/mntdir1/",
 			},
 			args: args{
 				r: volume.Request{
@@ -65,7 +65,7 @@ func TestExampleDriver_Create(t *testing.T) {
 			fields: fields{
 				volumes:    make(map[string]string),
 				m:          &sync.Mutex{},
-				mountPoint: "/tmp/exampledriver/",
+				mountPoint: "/tmp/mntdir1/",
 			},
 			args: args{
 				r: volume.Request{
