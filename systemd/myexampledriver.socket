@@ -1,9 +1,0 @@
-[Unit]
-Description=myexampledriver
-
-[Socket]
-ListenStream=/run/docker/plugins/myexampledriver.sock
-
-[Install]
-WantedBy=sockets.target
-
