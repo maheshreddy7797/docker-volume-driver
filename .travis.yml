@@ -14,6 +14,12 @@ branches:
 
 before_install:
   - sudo apt-get update
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y install docker-ce
+  - sudo docker --version
+  - go get -t -v ./...
 
 install:
   - sudo make
@@ -22,4 +28,4 @@ script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) CODECOV_TOKEN=67a580b1-489f-441c-802f-9f7da3c3d175
+  - bash <(curl -s https://codecov.io/bash) CODECOV_TOKEN=e3cf5d4c-0180-4978-9977-8061c5dbb130
