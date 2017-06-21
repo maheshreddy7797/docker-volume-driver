@@ -28,7 +28,7 @@
 ## 3. Create volume
   
   ```Shell
-      docker volume create -d maheshreddy7797/myexampledriver --name=demovol
+      docker volume create -d maheshreddy7797/myexampledriver -o user=admin -o password=open -o size=1G --name=demovol
   ```
   > demovol
   
