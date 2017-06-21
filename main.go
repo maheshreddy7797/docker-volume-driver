@@ -10,7 +10,7 @@ func main() {
 
 	driver := NewExampleDriver()
 	handler := volume.NewHandler(driver)
-	if err := handler.ServeUnix("/run/docker/plugins/myexampledriver.sock", 0); err != nil {
+	if err := handler.ServeUnix("docker-volume-driver.sock", 0); err != nil {
 		log.Fatalf("Error %v", err)
 	}
 
