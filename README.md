@@ -8,14 +8,15 @@
   
 ## 1. Install driver
    ```
-        - git clone https://github.com/maheshreddy7797/docker-volume-driver.git
-        - cd docker-volume-driver
-        - Make
+        - mkdir -p /tmp/mntdir1 /etc/mntdir2
+        - docker plugin install maheshreddy7797/docker-volume-driver
    ```
    >                                     OR
    ``` 
-        - mkdir -p /tmp/exampledriver /etc/myexampledriver
-        - docker plugin install maheshreddy7797/docker-volume-driver
+        - git clone https://github.com/maheshreddy7797/docker-volume-driver.git
+        - cd docker-volume-driver
+        - sudo make
+        
    ```
 ## 2. Check docker volume plugins list
    ```
