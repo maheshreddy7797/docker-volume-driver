@@ -1,5 +1,5 @@
 {
-    "description": "Example volume plugin",
+    "description": "Docker volume plugin to mount local directories as volumes",
     "documentation": "https://github.com/maheshreddy7797/docker-volume-driver/",
     "entrypoint": ["/docker-volume-driver"],
     "env": [
