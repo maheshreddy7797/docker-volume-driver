@@ -1,7 +1,7 @@
 {
     "description": "Example volume plugin",
-    "documentation": "https://github.com/maheshreddy7797/myexampledriver/",
-    "entrypoint": ["/myexampledriver"],
+    "documentation": "https://github.com/maheshreddy7797/docker-volume-driver/",
+    "entrypoint": ["/docker-volume-driver"],
     "env": [
         {
             "name": "DEBUG",
@@ -12,7 +12,7 @@
         }
     ],
     "interface": {
-        "socket": "myexampledriver.sock",
+        "socket": "docker-volume-driver.sock",
         "types": [
             "docker.volumedriver/1.0"
         ]
