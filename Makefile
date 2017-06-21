@@ -9,7 +9,7 @@ clean:
 	@rm -rf ./plugin bin
 
 host:
-	@mkdir -p /tmp/mntvol1 /etc/mntvol2
+	@mkdir -p /tmp/mntdir1 /etc/mntdir2
 
 docker:
 	@echo "### docker build: builder image"
